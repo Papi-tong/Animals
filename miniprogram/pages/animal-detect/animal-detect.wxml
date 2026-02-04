@@ -1,0 +1,18 @@
+<!-- miniprogram/pages/animal-detect/index.wxml -->
+<view class="container">
+  <view class="section">
+    <button bindtap="chooseImage" class="btn">选择图片</button>
+  </view>
+  <view wx:if="{{imagePath}}" class="preview">
+    <image class="img" src="{{imagePath}}" mode="aspectFit"></image>
+  </view>
+  <view class="section" wx:if="{{imagePath}}">
+    <button bindtap="detect" class="btn" loading="{{loading}}" disabled="{{loading}}">识别</button>
+    <button bindtap="reset" class="btn secondary" disabled="{{loading}}">重置</button>
+  </view>
+  <view wx:if="{{result}}" class="result">
+    <view class="title">识别结果</view>
+    <view class="text">类别：{{result.label}}</view>
+    <view class="text">置信度：{{result.score}}</view>
+  </view>
+</view>
